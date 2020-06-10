@@ -96,7 +96,7 @@ def reset_ball_offscreen():
     anim_num = 0
     
 def reset_game():
-    global  paddle1_pos, paddle2_pos, paddle1_vel, paddle2_vel, is_game_ended  # these are numbers
+    global  paddle1_pos, paddle2_pos, paddle1_vel, paddle2_vel, is_game_ended
     unlock_paddles()
     # reset countdown
     countdown = 4 #resetting countdown
@@ -108,7 +108,7 @@ def reset_game():
     create_paddle2_list() 
     
     #resets scores
-    global score1, score2  # these are ints
+    global score1, score2
     score1 = 0
     score2 = 0
     reset_ball()
