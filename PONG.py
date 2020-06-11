@@ -75,7 +75,6 @@ def reset_countdown_timer():
     countdown_text = ""
     
 def reset_ball():
-    #resets ball position
     global ball_pos, vel,anim_num, volley_counter 
     ball_pos = [WIDTH* 0.5, HEIGHT * 0.5]
     vel = [0,0]
@@ -84,7 +83,6 @@ def reset_ball():
     ball_anim_timer.start()
     
 def reset_ball_offscreen():
-    #resets ball position
     global ball_pos, vel,anim_num, BALL_RADIUS 
     ball_pos = [WIDTH* 0.5, HEIGHT * 0.5]
     BALL_RADIUS = 1
@@ -107,14 +105,11 @@ def reset_game():
     score2 = 0
     reset_ball()
     
-    
 def play_game():
     global direction, is_game_ended, vel
     unlock_paddles()
     vel = [2,1] # move ball
-    
-    
-    
+ 
 def new_game(): # plays next set
     global paddle1_pos, paddle2_pos, paddle1_vel, paddle2_vel, ball_pos, vel
     ball_pos = [WIDTH* 0.5, HEIGHT * 0.5]
@@ -149,10 +144,8 @@ def draw(canvas):
     if is_playing == False:
         title_width = frame.get_canvas_textwidth(title, title_size) # gets text width to align centered below ie: (width * 0.5)
         canvas.draw_text(title, ((WIDTH * 0.5) - (title_width * 0.5), HEIGHT * 0.5 + 150), title_size, 'White', 'sans-serif')
-    
         blurb_width = frame.get_canvas_textwidth(blurb, blurb_size) 
         canvas.draw_text(blurb, ((WIDTH * 0.5) - (blurb_width * 0.5), HEIGHT * 0.5 + 170), blurb_size, 'White', 'sans-serif')
-
         credit_width = frame.get_canvas_textwidth(credit, credit_size) 
         canvas.draw_text(credit, ((WIDTH * 0.5) - (credit_width * 0.5), HEIGHT * 0.5 + 188), credit_size, 'White', 'sans-serif')
     
@@ -183,7 +176,6 @@ def draw(canvas):
         else:
             if(score2 < score_limit ): # Compare Score with ScoreLimit: if score2 is under score_limit, then
                 score2 = score2 +1 #increment Player 2 Score
-                
                 if(score2 < score_limit): #if score2 is still LESS than score_limit
                     reset_ball_offscreen() #Hack to fix ball remaining in gutter
                     score_delay_timer.start()
@@ -202,7 +194,6 @@ def draw(canvas):
         else:
             if(score1 < score_limit ): # Compare Score with ScoreLimit: if score2 is under score_limit, then
                 score1 = score1 +1 #increment Player 2 Score
-                
                 if(score1 < score_limit): #if score2 is still LESS than score_limit
                     reset_ball_offscreen() #Hack to fix ball remaining in gutter
                     score_delay_timer.start()
